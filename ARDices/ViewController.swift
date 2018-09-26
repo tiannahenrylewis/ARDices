@@ -21,18 +21,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         //Create a cube object
-        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        //let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        
+        //Create a Sphere Object
+        let sphere = SCNSphere(radius: 0.2)
         
         //Create a material for the cube object
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.purple
+        material.diffuse.contents = UIImage(named: "art.scnassets/erisTexture.jpg")
         
         //Set the cube objects material to the created material
-        cube.materials = [material]
+        sphere.materials = [material]
         
         let node =  SCNNode()
         node.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
-        node.geometry = cube
+        node.geometry = sphere
         
         sceneView.scene.rootNode.addChildNode(node)
         
